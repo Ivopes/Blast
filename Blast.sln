@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blast", "Blast\Blast.csproj", "{FCC5FBF8-E136-423B-BAE1-CDA9F1172590}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCC5FBF8-E136-423B-BAE1-CDA9F1172590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCC5FBF8-E136-423B-BAE1-CDA9F1172590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCC5FBF8-E136-423B-BAE1-CDA9F1172590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCC5FBF8-E136-423B-BAE1-CDA9F1172590}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {44EB31D4-D4B1-4700-AF25-2F16D6BE841F}
+	EndGlobalSection
+EndGlobal
