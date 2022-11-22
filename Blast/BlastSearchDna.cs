@@ -3,12 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Blast
 {
-    internal class BlastSearch
+    internal class BlastSearchDna
     {
         private int[,] _blosumVals;
         private int _w;
@@ -20,10 +21,10 @@ namespace Blast
         private string _refer = "DAPCQEHKRGWPNDC";
         private FMIndex _fmIndex;
 
-        public BlastSearch(string toFind, int w, int T)
+        public BlastSearchDna(string toFind, int w, int T)
         {
-            _blosumVals = new int[20, 20];
-            ReadBlossum("../../../files/BLOSUM62.txt");
+            _blosumVals = new int[4, 4];
+            ReadBlossum("../../../files/BLOSUM62Dna.txt");
 
             _w = w;
             _T = T;
@@ -34,7 +35,7 @@ namespace Blast
 
             GenerateWmers(_w);
 
-            double length = Math.Pow(20, _w);
+            double length = Math.Pow(4, _w);
             for (int i = 0; i < _wMers.Length; i++)
             {
                 string wMer = _wMers[i];
@@ -112,25 +113,9 @@ namespace Blast
             return c switch
             {
                 'A' => 0,
-                'R' => 1,
-                'N' => 2,
-                'D' => 3,
-                'C' => 4,
-                'Q' => 5,
-                'E' => 6,
-                'G' => 7,
-                'H' => 8,
-                'I' => 9,
-                'L' => 10,
-                'K' => 11,
-                'M' => 12,
-                'F' => 13,
-                'P' => 14,
-                'S' => 15,
-                'T' => 16,
-                'W' => 17,
-                'Y' => 18,
-                'V' => 19,
+                'C' => 1,
+                'G' => 2,
+                'T' => 3,
             };
         }
         private char ItoC(int i)
@@ -138,25 +123,9 @@ namespace Blast
             return i switch
             {
                0 => 'A',
-               1 => 'R',
-               2 => 'N',
-               3 => 'D',
-               4 => 'C',
-               5 => 'Q',
-               6 => 'E',
-               7 => 'G',
-               8 => 'H',
-               9  => 'I',
-               10 => 'L',
-               11 => 'K',
-               12 => 'M',
-               13 => 'F',
-               14 => 'P',
-               15 => 'S',
-               16 => 'T',
-               17 => 'W',
-               18 => 'Y',
-               19 => 'V',
+               1 => 'C',
+               2 => 'G',
+               3 => 'T',
             };
         }
         private string GenerateComb(int index, int length)
@@ -170,14 +139,15 @@ namespace Blast
 
             for (int i = 0; i < length; i++)
             {
-                result[result.Length - i - 1] = ItoC(index % 20);
-                index /= 20;
+                result[result.Length - i - 1] = ItoC(index % 4);
+                index /= 4;
             }
 
             return new string(result);
         }
         public void StartSearch(out List<string> references,out List<int> scores, out List<int> positions)
         {
+            Console.WriteLine("Hledam...");
             references = new();
             scores = new();
             positions = new();
